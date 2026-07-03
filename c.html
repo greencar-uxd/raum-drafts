@@ -21,7 +21,7 @@ ul{list-style:none}
 header{position:fixed;top:0;left:0;right:0;z-index:100;padding:26px 0;transition:.4s}
 header.scrolled{background:rgba(13,13,14,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:15px 0}
 .hd{display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:19px;font-weight:700;letter-spacing:.18em}
+.logo{font-size:19px;font-weight:700;letter-spacing:.18em;color:var(--ink)}
 .logo small{display:block;font-size:8px;font-weight:400;letter-spacing:.34em;color:var(--gold);margin-top:4px}
 nav ul{display:flex;gap:36px}
 nav a{font-size:12px;letter-spacing:.2em;font-weight:500;color:var(--ink2);transition:.3s;padding:4px 0}
@@ -83,7 +83,7 @@ section{padding:130px 0}
 .card .info h3{font-size:16px;font-weight:600;margin-top:10px;line-height:1.45;letter-spacing:.02em}
 .card .line{position:absolute;left:22px;right:22px;bottom:76px;height:1px;background:rgba(242,239,233,.18);transform:scaleX(0);transform-origin:left;transition:.6s;z-index:3}
 .card:hover .line{transform:scaleX(1)}
-.ph-note{margin-top:28px;font-size:11px;letter-spacing:.14em;color:#5d5b56}
+.ph-note{margin-top:28px;font-size:11px;letter-spacing:.14em;color:#8a8781}
 /* categories */
 .cats{border-top:1px solid var(--line)}
 .cat-row{display:flex;align-items:center;justify-content:space-between;padding:46px 8px;border-bottom:1px solid var(--line);cursor:pointer;position:relative;overflow:hidden}
@@ -110,14 +110,27 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line)}
 .ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .ft .col h4{font-size:10px;letter-spacing:.32em;color:var(--gold);margin-bottom:14px}
 .ft .col p{font-size:13px;line-height:1.9;color:var(--ink2)}
-.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;color:#5d5b56}
+.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.14em;color:#8a8781}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.ph::before,.card .art::before,.feature .art::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.45),transparent 44%),linear-gradient(180deg,transparent 56%,rgba(201,169,106,.09) 57%,transparent 60%)}
+.mbtn{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:8px;z-index:160;color:var(--ink)}
+.mbtn span{display:block;width:26px;height:2px;background:currentColor;transition:.3s}
+.mbtn.open span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.mbtn.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;background:var(--bg);z-index:150;display:flex;align-items:center;padding:0 32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mnav.open{opacity:1;pointer-events:auto}
+.mnav ul{display:flex;flex-direction:column;gap:28px}
+.mnav a{font-family:var(--serif);font-size:32px;letter-spacing:.04em;color:var(--ink)}
+.mnav a:hover{color:var(--gold)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.slide,.slide .ph,.card .art,.feature .art{transition:none}.clients .tk{animation:none}}
 /* reveal */
-.rv{opacity:0;transform:translateY(38px);transition:opacity 1s ease,transform 1s ease}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
 .draft{position:fixed;right:16px;bottom:16px;z-index:200;background:var(--gold);color:#0d0d0e;font-size:10px;letter-spacing:.18em;padding:8px 14px;font-weight:700;opacity:.92}
 @media(max-width:900px){
   .wrap{padding:0 22px}
   nav{display:none}
+  .mbtn{display:flex}
   .hero-foot{left:22px;right:22px}
   .works-grid{grid-template-columns:1fr 1fr}
   .feature{aspect-ratio:16/10}
@@ -138,8 +151,16 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line)}
       <li><a href="#contact">CONTACT</a></li>
       <li><a href="#">RECRUIT</a></li>
     </ul></nav>
+    <button class="mbtn" id="mbtn" aria-label="메뉴"><span></span><span></span></button>
   </div>
 </header>
+<div class="mnav" id="mnav"><ul>
+  <li><a href="#about">ABOUT</a></li>
+  <li><a href="#work">WORK</a></li>
+  <li><a href="#category">CATEGORY</a></li>
+  <li><a href="#contact">CONTACT</a></li>
+  <li><a href="#">RECRUIT</a></li>
+</ul></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -198,7 +219,7 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line)}
 </section>
 
 <!-- CLIENTS -->
-<div class="clients rv"><span class="tk">LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA · THERAGEN HEALTH · (현 사이트 확인 프로젝트 기준)　　LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA · THERAGEN HEALTH · (현 사이트 확인 프로젝트 기준)　　</span></div>
+<div class="clients rv"><span class="tk">LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA · THERAGEN HEALTH　　LG ENERGY SOLUTION · LG DISPLAY · NH LIFE · DONG-A MEDIA · THERAGEN HEALTH　　</span></div>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
@@ -236,9 +257,16 @@ function go(n){
   document.getElementById('pj').textContent=pjs[cur];
 }
 function auto(){timer=setInterval(()=>go(cur+1),6500)}
-nums.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(timer);go(i);auto()}));
-auto();
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+nums.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(timer);go(i);if(!mq.matches)auto()}));
+const mq=matchMedia('(prefers-reduced-motion: reduce)');
+if(!mq.matches)auto();
+const heroEl=document.querySelector('.hero');
+heroEl.addEventListener('mouseenter',()=>clearInterval(timer));
+heroEl.addEventListener('mouseleave',()=>{clearInterval(timer);if(!mq.matches)auto()});
+const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
+mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>

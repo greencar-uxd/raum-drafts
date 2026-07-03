@@ -17,8 +17,8 @@ a{color:inherit;text-decoration:none}
 ul{list-style:none}
 .wrap{max-width:1440px;margin:0 auto;padding:0 48px}
 /* header */
-header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:28px 0;mix-blend-mode:difference;color:#fff}
-header.scrolled{mix-blend-mode:normal;color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:16px 0;border-bottom:1px solid var(--line)}
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s;padding:28px 0;color:#fff}
+header.scrolled{color:var(--ink);background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:16px 0;border-bottom:1px solid var(--line)}
 .hd{display:flex;align-items:center;justify-content:space-between}
 .logo{font-size:20px;font-weight:700;letter-spacing:.16em}
 .logo small{display:block;font-size:8px;font-weight:400;letter-spacing:.34em;opacity:.7;margin-top:3px}
@@ -60,7 +60,7 @@ section{padding:130px 0}
 .sec-head a{font-size:12px;letter-spacing:.2em;color:var(--ink2)}
 .statement{padding:150px 0;border-bottom:1px solid var(--line)}
 .statement p{font-size:clamp(24px,3.1vw,44px);line-height:1.5;font-weight:500;letter-spacing:-.01em;max-width:1040px}
-.statement p em{font-style:normal;color:#b5b5b5}
+.statement p em{font-style:normal;color:#8a8a8a}
 .statement .meta{margin-top:44px;font-size:12px;letter-spacing:.22em;color:var(--ink2)}
 /* works */
 .works-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
@@ -74,17 +74,17 @@ section{padding:130px 0}
 .a5{background:linear-gradient(160deg,#454850,#1d1f24 60%)}.a5::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 40% at 40% 30%,rgba(220,205,175,.28),transparent)}
 .a6{background:linear-gradient(140deg,#4b4740,#231f1a 70%)}.a6::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 50% at 60% 55%,rgba(185,200,205,.22),transparent)}
 .card .tag{position:absolute;top:18px;left:18px;font-size:10px;letter-spacing:.26em;color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.35);padding:6px 10px;backdrop-filter:blur(4px)}
-.card .info{position:absolute;left:0;right:0;bottom:0;padding:26px 22px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.55));opacity:0;transform:translateY(10px);transition:.45s}
-.card:hover .info{opacity:1;transform:none}
+.card .info{position:absolute;left:0;right:0;bottom:0;padding:26px 22px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.65))}
+.card:hover .info h3{text-decoration:underline;text-underline-offset:6px}
 .card .info h3{font-size:16px;font-weight:600;letter-spacing:.02em;line-height:1.4}
 .card .info span{font-size:11px;letter-spacing:.2em;opacity:.75;display:block;margin-top:6px}
-.ph-note{margin-top:28px;font-size:11px;letter-spacing:.12em;color:#b8b8b8}
+.ph-note{margin-top:28px;font-size:11px;letter-spacing:.12em;color:#767676}
 /* categories */
 .cats{border-top:1px solid var(--line)}
 .cat-row{display:flex;align-items:center;justify-content:space-between;padding:44px 8px;border-bottom:1px solid var(--line);transition:.35s;cursor:pointer}
 .cat-row:hover{padding-left:28px;background:#fafafa}
 .cat-row .l{display:flex;align-items:baseline;gap:26px}
-.cat-row .no{font-size:11px;letter-spacing:.2em;color:#bbb}
+.cat-row .no{font-size:11px;letter-spacing:.2em;color:#767676}
 .cat-row h3{font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:.01em}
 .cat-row .r{display:flex;align-items:center;gap:40px}
 .cat-row .cnt{font-size:12px;letter-spacing:.24em;color:var(--ink2)}
@@ -93,7 +93,7 @@ section{padding:130px 0}
 /* process */
 .proc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .proc{border-top:1px solid var(--ink);padding-top:26px}
-.proc .no{font-size:11px;letter-spacing:.24em;color:#bbb}
+.proc .no{font-size:11px;letter-spacing:.24em;color:#767676}
 .proc h3{font-size:17px;font-weight:600;margin:16px 0 12px;letter-spacing:.06em}
 .proc p{font-size:13px;line-height:1.8;color:var(--ink2)}
 /* contact */
@@ -107,15 +107,28 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line)}
 .ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
 .ft .col h4{font-size:10px;letter-spacing:.3em;color:#aaa;margin-bottom:14px}
 .ft .col p{font-size:13px;line-height:1.9;color:var(--ink2)}
-.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#b5b5b5}
+.copy{margin-top:56px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#8a8a8a}
 /* reveal */
-.rv{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s ease}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.ph::before,.card .art::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.38),transparent 42%),linear-gradient(180deg,transparent 57%,rgba(255,255,255,.07) 58%,transparent 60.5%)}
+.mbtn{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:8px;z-index:160;color:inherit}
+.mbtn span{display:block;width:26px;height:2px;background:currentColor;transition:.3s}
+.mbtn.open{color:#111}
+.mbtn.open span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.mbtn.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;background:#fff;z-index:150;display:flex;align-items:center;padding:0 32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mnav.open{opacity:1;pointer-events:auto}
+.mnav ul{display:flex;flex-direction:column;gap:28px}
+.mnav a{font-size:30px;font-weight:700;letter-spacing:.06em;color:#111}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.slide,.slide .ph,.card .art{transition:none}.scroll-hint{animation:none}}
 /* draft badge */
 .draft{position:fixed;right:16px;bottom:16px;z-index:200;background:#111;color:#fff;font-size:10px;letter-spacing:.18em;padding:8px 14px;opacity:.85}
 @media(max-width:900px){
   .wrap{padding:0 22px}
   nav{display:none}
+  .mbtn{display:flex}
   .hero-txt{left:22px;bottom:130px}
   .hero-meta{display:none}
   .hero-bar{left:22px;right:22px}
@@ -137,8 +150,16 @@ footer{padding:70px 0 40px;border-top:1px solid var(--line)}
       <li><a href="#contact">CONTACT</a></li>
       <li><a href="#">RECRUIT</a></li>
     </ul></nav>
+    <button class="mbtn" id="mbtn" aria-label="메뉴"><span></span><span></span></button>
   </div>
 </header>
+<div class="mnav" id="mnav"><ul>
+  <li><a href="#about">ABOUT</a></li>
+  <li><a href="#work">WORK</a></li>
+  <li><a href="#process">PROCESS</a></li>
+  <li><a href="#contact">CONTACT</a></li>
+  <li><a href="#">RECRUIT</a></li>
+</ul></div>
 
 <!-- HERO -->
 <div class="hero" id="hero">
@@ -242,9 +263,18 @@ function go(n){
   document.getElementById('pj').textContent=pjs[cur];
   document.getElementById('idx').textContent='0'+(cur+1)+' — 03';
 }
-setInterval(()=>go(cur+1),6000);
+let timer;const mq=matchMedia('(prefers-reduced-motion: reduce)');
+function auto(){timer=setInterval(()=>go(cur+1),6000)}
+if(!mq.matches)auto();
+const heroEl=document.getElementById('hero');
+heroEl.addEventListener('mouseenter',()=>clearInterval(timer));
+heroEl.addEventListener('mouseleave',()=>{clearInterval(timer);if(!mq.matches)auto()});
+// mobile nav
+const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
+mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));
 // reveal
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>

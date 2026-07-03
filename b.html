@@ -72,8 +72,9 @@ section{padding:120px 0}
 /* works */
 .works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
 .card{position:relative;overflow:hidden;cursor:pointer;background:#eee}
-.card.w7{grid-column:span 7;aspect-ratio:16/10}
-.card.w5{grid-column:span 5;aspect-ratio:4/3.4}
+.card.w7{grid-column:span 7}
+.card.w5{grid-column:span 5}
+.card.w7,.card.w5{height:min(34vw,520px)}
 .card.w4{grid-column:span 4;aspect-ratio:4/5}
 .card .art{position:absolute;inset:0;transition:transform .8s cubic-bezier(.2,.6,.2,1)}
 .card:hover .art{transform:scale(1.05)}
@@ -83,13 +84,13 @@ section{padding:120px 0}
 .a4{background:linear-gradient(150deg,#4d4a45,#211f1b 65%)}.a4::after{content:"";position:absolute;inset:0;background:radial-gradient(55% 45% at 65% 40%,rgba(210,215,220,.22),transparent)}
 .a5{background:linear-gradient(160deg,#454850,#1d1f24 60%)}.a5::after{content:"";position:absolute;inset:0;background:radial-gradient(50% 40% at 40% 30%,rgba(220,205,175,.28),transparent)}
 .card .no{position:absolute;top:16px;left:18px;font-size:11px;letter-spacing:.2em;color:rgba(255,255,255,.9)}
-.card .no b{color:var(--red)}
+.card .no b{color:#ff5064}
 .card .info{position:absolute;left:0;right:0;bottom:0;padding:24px 20px;color:#fff;background:linear-gradient(180deg,transparent,rgba(0,0,0,.6));display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
 .card .info h3{font-size:16px;font-weight:600;line-height:1.4}
 .card .info span{font-size:10px;letter-spacing:.22em;opacity:.75;display:block;margin-top:6px}
 .card .go{width:38px;height:38px;border:1px solid rgba(255,255,255,.5);display:grid;place-items:center;font-size:15px;transition:.35s;flex-shrink:0}
 .card:hover .go{background:var(--red);border-color:var(--red)}
-.ph-note{margin-top:26px;font-size:11px;letter-spacing:.12em;color:#b3b0ac}
+.ph-note{margin-top:26px;font-size:11px;letter-spacing:.12em;color:#76736f}
 /* categories */
 .cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .catc{border:1px solid var(--line);padding:34px 26px 30px;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;transition:.35s;cursor:pointer;background:#fff}
@@ -110,11 +111,24 @@ section{padding:120px 0}
 /* footer */
 footer{padding:66px 0 38px;border-top:1px solid var(--line)}
 .ft{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap}
-.ft .col h4{font-size:10px;letter-spacing:.3em;color:#b0aeaa;margin-bottom:14px}
+.ft .col h4{font-size:10px;letter-spacing:.3em;color:#767470;margin-bottom:14px}
 .ft .col p{font-size:13px;line-height:1.9;color:var(--ink2)}
-.copy{margin-top:52px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#b5b2ae}
+.copy{margin-top:52px;display:flex;justify-content:space-between;font-size:11px;letter-spacing:.12em;color:#767470}
+a:focus-visible,button:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.ph::before,.card .art::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.38),transparent 42%),linear-gradient(180deg,transparent 57%,rgba(255,255,255,.07) 58%,transparent 60.5%)}
+.mbtn{display:none;flex-direction:column;gap:6px;background:none;border:0;cursor:pointer;padding:8px;z-index:160;color:inherit}
+.mbtn span{display:block;width:26px;height:2px;background:currentColor;transition:.3s}
+.mbtn.open{color:var(--ink)}
+.mbtn.open span:nth-child(1){transform:translateY(4px) rotate(45deg)}
+.mbtn.open span:nth-child(2){transform:translateY(-4px) rotate(-45deg)}
+.mnav{position:fixed;inset:0;background:var(--bg);z-index:150;display:flex;align-items:center;padding:0 32px;opacity:0;pointer-events:none;transition:opacity .3s}
+.mnav.open{opacity:1;pointer-events:auto}
+.mnav ul{display:flex;flex-direction:column;gap:28px}
+.mnav a{font-size:30px;font-weight:700;letter-spacing:.06em;color:var(--ink)}
+.mnav a:hover{color:var(--red)}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.slide,.slide .ph,.card .art{transition:none}.ticker .tk{animation:none}}
 /* reveal */
-.rv{opacity:0;transform:translateY(36px);transition:opacity .9s ease,transform .9s ease}
+.rv{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
 .rv.in{opacity:1;transform:none}
 .draft{position:fixed;right:16px;bottom:16px;z-index:200;background:var(--red);color:#fff;font-size:10px;letter-spacing:.18em;padding:8px 14px;opacity:.9}
 @media(max-width:900px){
@@ -123,8 +137,9 @@ footer{padding:66px 0 38px;border-top:1px solid var(--line)}
   .hero-inner{left:22px;right:22px;flex-direction:column;align-items:flex-start}
   .hero-count{display:none}
   .dots{right:20px}
+  .mbtn{display:flex}
   .works-grid{grid-template-columns:1fr}
-  .card.w7,.card.w5,.card.w4{grid-column:span 1;aspect-ratio:4/3}
+  .card.w7,.card.w5,.card.w4{grid-column:span 1;aspect-ratio:4/3;height:auto}
   .cat-grid{grid-template-columns:1fr 1fr}
   section{padding:88px 0}
 }
@@ -142,8 +157,16 @@ footer{padding:66px 0 38px;border-top:1px solid var(--line)}
       <li><a href="#contact">CONTACT</a></li>
       <li><a href="#">RECRUIT</a></li>
     </ul></nav>
+    <button class="mbtn" id="mbtn" aria-label="메뉴"><span></span><span></span></button>
   </div>
 </header>
+<div class="mnav" id="mnav"><ul>
+  <li><a href="#about">ABOUT</a></li>
+  <li><a href="#work">WORK</a></li>
+  <li><a href="#category">CATEGORY</a></li>
+  <li><a href="#contact">CONTACT</a></li>
+  <li><a href="#">RECRUIT</a></li>
+</ul></div>
 
 <!-- HERO -->
 <div class="hero">
@@ -236,9 +259,16 @@ function go(n){
   document.getElementById('cn').textContent='0'+(cur+1);
 }
 function auto(){timer=setInterval(()=>go(cur+1),6000)}
-dots.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(timer);go(i);auto()}));
-auto();
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+dots.forEach((d,i)=>d.addEventListener('click',()=>{clearInterval(timer);go(i);if(!mq.matches)auto()}));
+const mq=matchMedia('(prefers-reduced-motion: reduce)');
+if(!mq.matches)auto();
+const heroEl=document.querySelector('.hero');
+heroEl.addEventListener('mouseenter',()=>clearInterval(timer));
+heroEl.addEventListener('mouseleave',()=>{clearInterval(timer);if(!mq.matches)auto()});
+const mb=document.getElementById('mbtn'),mn=document.getElementById('mnav');
+mb.addEventListener('click',()=>{mb.classList.toggle('open');mn.classList.toggle('open')});
+mn.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mb.classList.remove('open');mn.classList.remove('open')}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.05,rootMargin:'0px 0px -8% 0px'});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 </script>
 </body>
