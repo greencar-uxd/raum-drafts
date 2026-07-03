@@ -7,6 +7,24 @@
 
 ---
 
+## ✅ 수정 반영 현황 (2026-07-03)
+
+본 리포트의 지적 사항 중 아래 항목이 **18개 파일 전체에 수정 반영**되었습니다 (Playwright 재검증 통과):
+
+- **C-1** 모바일 메뉴: 오버레이 z-index 재구성(`header.menu-open`), Escape 닫기, `aria-expanded`/`aria-controls`, 열림 시 배경 스크롤 잠금, 닫힌 메뉴 `visibility:hidden`(탭 순서 제외)
+- **C-2** about 모바일 그리드: 인라인 스타일 제거 → `.sp-grid.four`/`.sp-blurbs.four` 클래스화 (390px 오버플로 0px 실측)
+- **C-3** 폼: 전 필드 `for`/`id`/`name`/`autocomplete`/`type="tel"` 연결, 알림 `role="status"`, 입력 16px(iOS 줌 방지), 보더 3:1 대비 충족, `:focus-visible` 아웃라인
+- **C-4** 죽은 카드: 메인 카드·카테고리 행·피처 블록 전부 `<a>` 링크화 (A 10곳 / B 9곳 / C 8곳)
+- **C-5** `<noscript>` 리빌 폴백 + A·B 서브페이지 헤더 `class="scrolled"` 하드코딩(no-JS 대비 회복)
+- **C-6** 캐러셀 컨트롤: A 진행바·B 도트·C 번호를 `aria-label` 있는 `<button>`으로 교체, 포커스 시 자동재생 일시정지 추가
+- **B 고유**: 히어로에서 햄버거 흰색 처리, 티커 호버 일시정지 + 중복 텍스트 `aria-hidden`, 카드 번호 텍스트 스크림
+- **C 고유**: Noto Serif KR 도입(한글 세리프 컨셉 성립), 클라이언트 마키 중복 `aria-hidden` + 호버 정지
+- **Warning**: CTA h1→h2(h1 중복 해소), `span>h3` invalid HTML 해소, `word-break:keep-all`, `.statement` 패딩 복구, `100dvh`, 터치 타깃(햄버거 44px·탭 패딩), 스킵 링크+`<main id="main">`, `aria-current="page"`, 로고 서브라벨 10px, A 푸터 대비(#767676/#6e6e6e), reduced-motion 커버리지 확장, work 리드 메타 카피 ※주석 강등, `&amp;` 이스케이프, "템플릿으로" 오탈자, 로고 셀프 링크, sr-only h2(헤딩 스킵 완화)
+
+미반영(발주처 확인 필요 또는 디자인 결정 사항): "Ochang Entral Park" 표기, CTA 어휘 통일(B), WORK/CATEGORY 중복 내비(B), 시그니처 요소 강화, 공통 CSS 파일 분리(아임웹 이관 시), meta/OG/favicon.
+
+---
+
 ## 요약 (TL;DR)
 
 세 시안 모두 **실행 완성도와 페이지 간 일관성은 시안 단계 기준으로 높습니다.** 디자인 토큰이 페이지별로 흐트러짐 없이 유지되고, 명도 대비는 본문 텍스트 기준 전 시안이 WCAG AA를 통과하며, 외부 요청 0건·CLS 방지(aspect-ratio)·reduced-motion 폴백 등 성능·모션 기본기가 잘 잡혀 있습니다. JS 에러는 18페이지 전부 0건.
